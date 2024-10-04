@@ -13,13 +13,42 @@
   font-size: 0.875rem;
   line-height: 1.5;
   font-weight: 700;
+
+  /* Variables */
+  --color-primary: hsl(237 18% 59%);
+  --color-secondary: hsl(345 95% 68%);
+
+  --color-white: hsl(0 0% 100%);
+  --color-dark-desaturated-blue: hsl(236 21% 26%);
+  --color-very-dark-blue: hsl(235 16% 14%);
+  --color-very-dark-blue-most: hsl(234 17% 12%);
 }
 
 body {
   margin: 0;
   padding: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+
+  background: url("./assets/images/pattern-hills.svg"),
+    url("./assets/images/bg-stars.svg"),
+    linear-gradient(
+      to bottom,
+      hsl(234 17% 12%),
+      hsl(235 16% 14%),
+      hsl(236 21% 26%)
+    );
+  background-position: 100% 110%, top, center;
+  background-repeat: no-repeat;
+  background-size: auto, auto, cover;
+  color: var(--color-white);
+}
+
+.card {
+  /* Remove when the animation is added */
+  background-image: linear-gradient(
+    to bottom,
+    hsl(240 21 22) 50%,
+    var(--color-dark-desaturated-blue) 50%
+  );
 }
