@@ -1,14 +1,28 @@
+import { useEffect, useMemo, useState } from "react";
+import { calculateTime } from "../utils/calculateTime";
+
 export default function CountdownSection() {
+  const theDate = "2024-10-10";
+  const launchDate = useMemo(() => new Date(theDate), []);
+  const [time, setTime] = useState(() => calculateTime(launchDate));
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(calculateTime(launchDate));
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [launchDate]);
+
   return (
     <section className="flex items-center justify-between gap-8 py-16">
-      <CountdownCard value={8} unit={"days"} />
-      <CountdownCard value={23} unit={"hours"} />
-      <CountdownCard value={55} unit={"minutes"} />
-      <CountdownCard value={41} unit={"seconds"} />
+      <CountdownCard value={time.days} unit="days" />
+      <CountdownCard value={time.hours} unit="hours" />
+      <CountdownCard value={time.minutes} unit="minutes" />
+      <CountdownCard value={time.seconds} unit="seconds" />
     </section>
   );
 }
-
 function CountdownCard({ value, unit }) {
   return (
     <div className="flex-1 flex flex-col gap-8 text-center">
