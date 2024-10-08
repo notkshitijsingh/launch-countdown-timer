@@ -40,7 +40,7 @@ body {
     );
   background-position: 100% 110%, top, center;
   background-repeat: no-repeat;
-  background-size: auto, auto, cover;
+  background-size: 100%, auto, cover;
   color: var(--color-white);
 }
 
@@ -51,4 +51,12 @@ body {
     hsl(240 21 22) 50%,
     var(--color-dark-desaturated-blue) 50%
   );
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.icon:hover svg path {
+  fill: var(--color-secondary);
 }

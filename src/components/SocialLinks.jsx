@@ -1,16 +1,13 @@
-export default function SocialLinks() {
-  const socials = ["facebook", "pinterest", "instagram"];
+import IconFacebook from "./icons/IconFacebook";
+import IconInstagram from "./icons/IconInstagram";
+import IconPinterest from "./icons/IconPinterest";
 
+export default function SocialLinks() {
   return (
     <section className="flex items-center justify-center gap-9">
-      {socials.map((social) => (
-        <img
-          key={social}
-          className="cursor-pointer"
-          src={`./src/assets/images/icon-${social}.svg`}
-          alt={social}
-        />
-      ))}
+      <IconFacebook />
+      <IconPinterest />
+      <IconInstagram />
     </section>
   );
 }
