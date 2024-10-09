@@ -15,7 +15,7 @@ export default function CountdownSection() {
   }, [launchDate]);
 
   return (
-    <section className="flex items-center justify-between gap-8 py-16">
+    <section className="grid grid-cols-4 gap-5 md:gap-8 md:py-16">
       <CountdownCard value={time.days} unit="days" />
       <CountdownCard value={time.hours} unit="hours" />
       <CountdownCard value={time.minutes} unit="minutes" />
@@ -25,11 +25,13 @@ export default function CountdownSection() {
 }
 function CountdownCard({ value, unit }) {
   return (
-    <div className="flex-1 flex flex-col gap-8 text-center">
-      <div className="card grid place-content-center h-40 rounded-xl">
-        <p className="text-8xl text-[var(--color-secondary)]">{value}</p>
+    <div className="flex flex-col gap-4 md:gap-8 text-center">
+      <div className="card grid place-content-center rounded md:rounded-lg py-4 md:py-8">
+        <p className="text-4xl md:text-8xl text-[var(--color-secondary)]">
+          {value}
+        </p>
       </div>
-      <p className="text-xl tracking-[0.2em] text-[var(--color-primary)] uppercase">
+      <p className="text-xs md:text-xl tracking-[0.2em] text-[var(--color-primary)] uppercase">
         {unit}
       </p>
     </div>
