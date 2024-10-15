@@ -24,20 +24,48 @@ export default function CountdownSection() {
   );
 }
 function CountdownCard({ value, unit }) {
+  const [isAnimating, setIsAnimating] = useState(true);
+
+  useEffect(() => {
+    setIsAnimating(true);
+    setTimeout(() => setIsAnimating(false), 1000 - 50);
+  }, [value]);
+
   return (
     <div className="flex flex-col gap-4 md:gap-8 text-center">
       <div className="card grid place-content-center rounded md:rounded-lg pb-3">
-        {/* <div className="front-card">{value}</div> */}
-        <div className="card-top rounded md:rounded-lg">
-          <div className="absolute inset-0 top-auto translate-y-1/2">
-            {value}
+        <div className="ctn-card-top rounded md:rounded-lg">
+          <div className="w-full h-full overflow-hidden rounded md:rounded-lg">
+            <div className="card-top-content">{value}</div>
           </div>
+          {isAnimating && (
+            <div
+              className={`card-top -mt-[72px] rounded md:rounded-lg ${
+                isAnimating ? "animate-card-top" : ""
+              }`}
+            >
+              <div className="card-top-content">{value + 1}</div>
+            </div>
+          )}
         </div>
+
         <div className="separation"></div>
-        <div className="card-bottom rounded md:rounded-lg">
-          <div className="absolute inset-0 bottom-auto -translate-y-1/2 leading-none">
-            {value}
+
+        <div className="ctn-card-bottom rounded md:rounded-lg">
+          <div className="relative w-full h-full overflow-hidden rounded md:rounded-lg">
+            <div className="card-bottom-content">
+              {isAnimating ? value + 1 : value}
+            </div>
           </div>
+          {isAnimating && (
+            <div
+              className={`card-bottom -mt-[72px] rounded md:rounded-lg ${
+                isAnimating ? "animate-card-bottom" : ""
+              }`}
+            >
+              <div className="card-bottom-content">{value}</div>
+            </div>
+          )}
         </div>
       </div>
       <p className="text-xs md:text-xl tracking-[0.2em] text-[var(--color-primary)] uppercase">
