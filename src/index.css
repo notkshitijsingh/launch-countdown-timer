@@ -118,17 +118,15 @@ footer {
 .animate-card-top {
   opacity: 0;
   transform-origin: bottom;
-  /* transform: rotate3d(-1, 0, 0, 90deg); */
   background-color: hsl(240 21 22);
   animation-name: animateCardTop;
 }
 
 .animate-card-bottom {
+  opacity: 1;
   transform-origin: top;
-  /* transform: rotate3d(1, 0, 0, 90deg); */
   background-color: var(--color-dark-desaturated-blue);
   animation-name: animateCardBottom;
-  opacity: 1;
 }
 
 @keyframes animateCardTop {
@@ -206,4 +204,11 @@ footer {
 
 .icon:hover svg path {
   fill: var(--color-secondary);
+}
+
+@media screen and (width < 768px) {
+  .ctn-card-top,
+  .ctn-card-bottom {
+    height: 32px;
+  }
 }

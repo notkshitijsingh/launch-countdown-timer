@@ -40,7 +40,7 @@ function CountdownCard({ value, unit }) {
           </div>
           {isAnimating && (
             <div
-              className={`card-top -mt-[72px] rounded md:rounded-lg ${
+              className={`card-top md:-mt-[72px] -mt-[32px] rounded md:rounded-lg ${
                 isAnimating ? "animate-card-top" : ""
               }`}
             >
@@ -59,7 +59,7 @@ function CountdownCard({ value, unit }) {
           </div>
           {isAnimating && (
             <div
-              className={`card-bottom -mt-[72px] rounded md:rounded-lg ${
+              className={`card-bottom md:-mt-[72px] -mt-[32px] rounded md:rounded-lg ${
                 isAnimating ? "animate-card-bottom" : ""
               }`}
             >

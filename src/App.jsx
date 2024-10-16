@@ -21,11 +21,6 @@ export default function App() {
           </footer>
         </div>
       </div>
-      <img
-        className="hidden absolute inset-0 w-full h-screen object-cover"
-        src="./src/design/desktop-design.jpg"
-        alt=""
-      />
     </>
   );
 }
