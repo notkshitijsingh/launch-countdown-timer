@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { calculateTime } from "../utils/calculateTime";
 
 export default function CountdownSection() {
-  const theDate = "2024-10-20";
+  const theDate = "2025-01-01";
   const launchDate = useMemo(() => new Date(theDate), []);
   const [time, setTime] = useState(() => calculateTime(launchDate));
 
@@ -33,9 +33,9 @@ function CountdownCard({ value, unit }) {
 
   return (
     <div className="flex flex-col gap-4 md:gap-8 text-center">
-      <div className="card grid place-content-center rounded md:rounded-lg pb-3">
+      <div className="card rounded md:rounded-lg pb-3">
         <div className="ctn-card-top rounded md:rounded-lg">
-          <div className="w-full h-full overflow-hidden rounded md:rounded-lg">
+          <div className="card-top rounded md:rounded-lg">
             <div className="card-top-content">{value}</div>
           </div>
           {isAnimating && (
@@ -49,10 +49,8 @@ function CountdownCard({ value, unit }) {
           )}
         </div>
 
-        <div className="separation"></div>
-
         <div className="ctn-card-bottom rounded md:rounded-lg">
-          <div className="relative w-full h-full overflow-hidden rounded md:rounded-lg">
+          <div className="card-bottom rounded md:rounded-lg">
             <div className="card-bottom-content">
               {isAnimating ? value + 1 : value}
             </div>
