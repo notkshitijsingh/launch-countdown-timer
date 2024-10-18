@@ -31,6 +31,18 @@ function CountdownCard({ value, unit }) {
     setTimeout(() => setIsAnimating(false), 1000 - 50);
   }, [value]);
 
+  const checkValue = (value) => {
+    switch (unit) {
+      case "seconds":
+      case "minutes":
+        return value === 59 ? 0 : value + 1;
+      case "hours":
+        return value === 23 ? 0 : value + 1;
+      default:
+        return value + 1;
+    }
+  };
+
   return (
     <div className="flex flex-col gap-4 md:gap-8 text-center">
       <div className="card rounded md:rounded-lg pb-3">
@@ -44,7 +56,7 @@ function CountdownCard({ value, unit }) {
                 isAnimating ? "animate-card-top" : ""
               }`}
             >
-              <div className="card-top-content">{value + 1}</div>
+              <div className="card-top-content">{checkValue(value)}</div>
             </div>
           )}
         </div>
@@ -52,7 +64,7 @@ function CountdownCard({ value, unit }) {
         <div className="ctn-card-bottom rounded md:rounded-lg">
           <div className="card-bottom rounded md:rounded-lg">
             <div className="card-bottom-content">
-              {isAnimating ? value + 1 : value}
+              {isAnimating ? checkValue(value) : value}
             </div>
           </div>
           {isAnimating && (
